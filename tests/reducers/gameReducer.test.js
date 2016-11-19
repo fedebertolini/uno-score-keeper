@@ -3,10 +3,8 @@ import { GAME_STATUS_NOT_STARTED, GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED 
 import { gameReducer } from '../../src/reducers/gameReducer'
 
 const baseState = {
-    gameStatus: GAME_STATUS_NOT_STARTED,
-    maxScore: 500,
-    players: [],
-    rounds: [],
+    status: GAME_STATUS_NOT_STARTED,
+    maxScore: 500
 };
 
 test('createGame reducer', () => {
@@ -24,7 +22,7 @@ test('startGame reducer', () => {
     };
 
     var state = gameReducer(baseState, action);
-    expect(state.gameStatus).toEqual(GAME_STATUS_IN_PROGRESS);
+    expect(state.status).toEqual(GAME_STATUS_IN_PROGRESS);
 });
 
 test('endGame reducer', () => {
@@ -33,5 +31,5 @@ test('endGame reducer', () => {
     };
 
     var state = gameReducer(baseState, action);
-    expect(state.gameStatus).toEqual(GAME_STATUS_FINISHED);
+    expect(state.status).toEqual(GAME_STATUS_FINISHED);
 });

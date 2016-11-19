@@ -14,24 +14,22 @@ export function playerReducer(state = {}, action) {
 };
 
 
-function addPlayer(state, action) {
-    const players = [
-        ...state.players,
+function addPlayer(players, action) {
+    return [
+        ...players,
         {
             id: action.playerId,
             name: action.playerName
         }
     ];
-    return { ...state, players: players };
 }
 
-function removePlayer(state, action) {
-    const players = state.players.filter((player) => player.id !== action.playerId);
-    return { ...state, players: players };
+function removePlayer(players, action) {
+    return players.filter((player) => player.id !== action.playerId);
 }
 
-function editPlayer(state, action) {
-    const players = state.players.map((player) => {
+function editPlayer(players, action) {
+    return players.map((player) => {
         if (player.id === action.playerId) {
             return {
                 id: player.id,
@@ -40,5 +38,4 @@ function editPlayer(state, action) {
         }
         return player;
     });
-    return { ...state, players: players };
 }

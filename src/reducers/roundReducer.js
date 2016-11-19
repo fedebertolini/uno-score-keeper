@@ -11,19 +11,18 @@ export function roundReducer(state = {}, action) {
     }
 };
 
-function addRound(state, action) {
-    const rounds = [
-        ...state.rounds,
+function addRound(rounds, action) {
+    return [
+        ...rounds,
         {
             id: action.roundId,
             scores: { }
         }
     ];
-    return { ...state, rounds: rounds };
 }
 
-function editRound(state, action) {
-    const rounds = state.rounds.map((round) => {
+function editRound(rounds, action) {
+    return rounds.map((round) => {
         if (round.id === action.roundId) {
             return {
                 id: round.id,
@@ -32,5 +31,4 @@ function editRound(state, action) {
         }
         return round;
     });
-    return { ...state, rounds: rounds };
 }

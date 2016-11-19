@@ -1,14 +1,12 @@
 import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from '../../src/constants';
 import { playerReducer } from '../../src/reducers/playerReducer'
 
-const baseState = {
-    players: [
-        {
-            id: 1,
-            name: 'John',
-        }
-    ]
-};
+const baseState = [
+    {
+        id: 1,
+        name: 'John',
+    }
+];
 
 test('addPlayer reducer', () => {
     const action = {
@@ -19,7 +17,7 @@ test('addPlayer reducer', () => {
 
     var state = playerReducer(baseState, action);
 
-    expect(state.players).toEqual([
+    expect(state).toEqual([
         {
             id: 1,
             name: 'John',
@@ -39,7 +37,7 @@ test('removePlayer reducer', () => {
 
     var state = playerReducer(baseState, action);
 
-    expect(state.players).toEqual([]);
+    expect(state).toEqual([]);
 });
 
 test('editPlayer reducer', () => {
@@ -51,7 +49,7 @@ test('editPlayer reducer', () => {
 
     var state = playerReducer(baseState, action);
 
-    expect(state.players).toEqual([
+    expect(state).toEqual([
         {
             id: 1,
             name: 'Federico'

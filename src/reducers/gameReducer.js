@@ -3,10 +3,8 @@ import { GAME_STATUS_NOT_STARTED, GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED 
 
 function createGame(state) {
     return {
-        gameStatus: GAME_STATUS_NOT_STARTED,
-        maxScore: 500,
-        players: [],
-        rounds: [],
+        status: GAME_STATUS_NOT_STARTED,
+        maxScore: 500
     };
 }
 
@@ -15,9 +13,9 @@ export function gameReducer(state = {}, action) {
         case CREATE_GAME:
             return createGame(state);
         case START_GAME:
-            return { ...state, gameStatus: GAME_STATUS_IN_PROGRESS };
+            return { ...state, status: GAME_STATUS_IN_PROGRESS };
         case END_GAME:
-            return { ...state, gameStatus: GAME_STATUS_FINISHED };
+            return { ...state, status: GAME_STATUS_FINISHED };
         default:
             return state;
     }

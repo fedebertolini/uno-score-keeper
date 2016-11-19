@@ -1,18 +1,16 @@
 import { ADD_ROUND, EDIT_ROUND } from '../../src/constants';
 import { roundReducer } from '../../src/reducers/roundReducer'
 
-const baseState = {
-    rounds: [
-        {
-            id: 1,
-            scores: {
-                1: 45,
-                2: 0,
-                3: 13
-            }
+const baseState = [
+    {
+        id: 1,
+        scores: {
+            1: 45,
+            2: 0,
+            3: 13
         }
-    ]
-};
+    }
+];
 
 test('addRound reducer', () => {
     const action = {
@@ -22,7 +20,7 @@ test('addRound reducer', () => {
 
     var state = roundReducer(baseState, action);
 
-    expect(state.rounds).toEqual([
+    expect(state).toEqual([
         {
             id: 1,
             scores: {
@@ -51,7 +49,7 @@ test('editRound reducer', () => {
 
     var state = roundReducer(baseState, action);
 
-    expect(state.rounds).toEqual([
+    expect(state).toEqual([
         {
             id: 1,
             scores: {

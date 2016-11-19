@@ -9,10 +9,10 @@ export const addRound = () => {
     };
 };
 
-export const editRound = (roundId, roundData) => {
+export const editRound = (roundId, scores) => {
     return {
         type: EDIT_ROUND,
         roundId,
-        roundData,
+        scores,
     };
 };

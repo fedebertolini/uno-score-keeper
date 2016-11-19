@@ -10,17 +10,15 @@ test('addRound action', () => {
 });
 
 test('editRound action', () => {
-    var roundData = [
-        {
-            playerId: 1,
-            score: 50
-        }
-    ];
+    var scores = {
+        1: 10,
+        2: 0
+    };
 
-    var action = roundActions.editRound(1, roundData);
+    var action = roundActions.editRound(1, scores);
     expect(action).toEqual({
         type: EDIT_ROUND,
         roundId: 1,
-        roundData: roundData
+        scores: scores
     });
 });

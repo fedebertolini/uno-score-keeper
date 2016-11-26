@@ -1,24 +1,21 @@
 import React, { PropTypes } from 'react';
+import AddPlayerContainer from '../containers/AddPlayerContainer';
 
 const GameCreation = ({ onAddPlayer, players }) => (
     <div>
         <h2>Add the UNO players</h2>
 
-        <div>
-            <input type="text" id="add-player-name"></input>
-            <button type="button" onClick={onAddPlayer}>Add</button>
-        </div>
+        <AddPlayerContainer></AddPlayerContainer>
 
         <ul>
             {players.map(player =>
-                <li>{player.name}</li>
+                <li key={player.id}>{player.name}</li>
             )}
         </ul>
     </div>
 );
 
 GameCreation.propTypes = {
-    onAddPlayer: PropTypes.func.isRequired,
     players: PropTypes.array.isRequired
 }
 

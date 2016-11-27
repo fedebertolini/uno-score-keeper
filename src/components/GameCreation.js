@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import AddPlayerContainer from '../containers/AddPlayerContainer';
+import EditPlayerContainer from '../containers/EditPlayerContainer';
 
 const GameCreation = ({ onAddPlayer, players }) => (
     <div>
@@ -9,7 +10,9 @@ const GameCreation = ({ onAddPlayer, players }) => (
 
         <ul>
             {players.map(player =>
-                <li key={player.id}>{player.name}</li>
+                <li key={player.id}>
+                    <EditPlayerContainer player={player}></EditPlayerContainer>
+                </li>
             )}
         </ul>
     </div>

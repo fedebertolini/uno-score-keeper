@@ -3,18 +3,16 @@ import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from '../../src/constants';
 
 test('addPlayer action', () => {
     var action = playerActions.addPlayer('Federico');
-    expect(action).toEqual({
-        type: ADD_PLAYER,
-        playerId: 1,
-        playerName: 'Federico'
-    });
 
-    var action = playerActions.addPlayer('Sofia');
-    expect(action).toEqual({
-        type: ADD_PLAYER,
-        playerId: 2,
-        playerName: 'Sofia'
-    });
+    expect(action.type).toEqual(ADD_PLAYER);
+    expect(action.playerName).toEqual('Federico');
+    expect(action.playerId).toBeTruthy();
+
+    var secondAction = playerActions.addPlayer('Sofia');
+
+    expect(secondAction.type).toEqual(ADD_PLAYER);
+    expect(secondAction.playerName).toEqual('Sofia');
+    expect(secondAction.playerId).toBeTruthy();
 });
 
 test('removePlayer action', () => {

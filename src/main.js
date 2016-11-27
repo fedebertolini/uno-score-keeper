@@ -5,12 +5,19 @@ import { Provider } from 'react-redux'
 import App from './components/App';
 import appReducer from './reducers/appReducer';
 import { createGame } from './actions/gameActions';
+import { loadState, saveState } from './services/storePersistance';
 
-let store = createStore(appReducer, {
+const persistedState = loadState();
+let store = createStore(appReducer, persistedState || {
     game: {},
     players: [],
     rounds: []
 });
+
+store.subscribe(() => {
+    saveState(store.getState());
+})
+
 store.dispatch(createGame());
 
 ReactDOM.render(

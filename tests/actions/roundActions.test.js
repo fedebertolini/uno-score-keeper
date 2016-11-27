@@ -3,10 +3,9 @@ import { ADD_ROUND, EDIT_ROUND } from '../../src/constants';
 
 test('addRound action', () => {
     var action = roundActions.addRound();
-    expect(action).toEqual({
-        type: ADD_ROUND,
-        roundId: 1
-    });
+
+    expect(action.type).toEqual(ADD_ROUND);
+    expect(action.roundId).toBeTruthy();
 });
 
 test('editRound action', () => {

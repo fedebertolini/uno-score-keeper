@@ -1,11 +1,10 @@
 import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from '../constants';
-
-var playerIdCounter = 1;
+import { v4 } from 'node-uuid';
 
 export const addPlayer = (playerName) => {
     return {
         type: ADD_PLAYER,
-        playerId: playerIdCounter++,
+        playerId: v4(),
         playerName,
     };
 };

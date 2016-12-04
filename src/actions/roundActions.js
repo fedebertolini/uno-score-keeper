@@ -1,10 +1,11 @@
 import { ADD_ROUND, EDIT_ROUND } from '../constants';
 import { v4 } from 'node-uuid';
 
-export const addRound = () => {
+export const addRound = (scores) => {
     return {
         type: ADD_ROUND,
         roundId: v4(),
+        scores
     };
 };
 

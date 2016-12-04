@@ -7,7 +7,7 @@ const baseState = [
         scores: {
             1: 45,
             2: 0,
-            3: 13
+            3: 13,
         }
     }
 ];
@@ -15,7 +15,12 @@ const baseState = [
 test('addRound reducer', () => {
     const action = {
         type: ADD_ROUND,
-        roundId: 2
+        roundId: 2,
+        scores: {
+            1: 10,
+            2: 0,
+            3: 34,
+        }
     };
 
     var state = roundReducer(baseState, action);
@@ -26,12 +31,16 @@ test('addRound reducer', () => {
             scores: {
                 1: 45,
                 2: 0,
-                3: 13
+                3: 13,
             }
         },
         {
             id: 2,
-            scores: { }
+            scores: {
+                1: 10,
+                2: 0,
+                3: 34,
+            }
         }
     ]);
 });

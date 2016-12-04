@@ -16,7 +16,7 @@ function addRound(rounds, action) {
         ...rounds,
         {
             id: action.roundId,
-            scores: { }
+            scores: action.scores
         }
     ];
 }

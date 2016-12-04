@@ -4,6 +4,7 @@ import Home from './Home';
 import GameCreationContainer from '../containers/GameCreationContainer';
 import RoundEdition from './RoundEdition';
 import RoundTableContainer from '../containers/RoundTableContainer';
+import RoundCreationContainer from '../containers/RoundCreationContainer';
 
 class App extends React.Component {
     render() {
@@ -12,8 +13,9 @@ class App extends React.Component {
                 <h1>UNO Score Tracker</h1>
                 <Router history={ hashHistory }>
                     <Route path="/" component={Home}></Route>
-                    <Route path="/create" component={GameCreationContainer}></Route>
-                    <Route path="/round/:roundId" component={RoundEdition}></Route>
+                    <Route path="/game" component={GameCreationContainer}></Route>
+                    <Route path="/round/edit/:roundId" component={RoundEdition}></Route>
+                    <Route path="/round/create/" component={RoundCreationContainer}></Route>
                     <Route path="/round" component={RoundTableContainer}></Route>
                 </Router>
             </div>

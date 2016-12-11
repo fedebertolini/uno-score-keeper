@@ -6,9 +6,10 @@ import { startGame } from '../actions/gameActions';
 
 const mapStateToProps = (state) => {
     return {
-        players: state.players
+        players: state.players,
+        game: state.game,
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {

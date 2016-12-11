@@ -1,32 +1,41 @@
 import React, { PropTypes } from 'react';
 import AddPlayerContainer from '../containers/AddPlayerContainer';
 import EditPlayerContainer from '../containers/EditPlayerContainer';
+import { GAME_STATUS_NOT_STARTED } from '../constants';
+import { hashHistory } from 'react-router';
 
-const GameCreation = ({ onGameStart, players }) => {
+class GameCreation extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2>Add the UNO players</h2>
 
-    const startGame = () => {
-        if (players && players.length >= 2) {
-            onGameStart();
+                <AddPlayerContainer></AddPlayerContainer>
+
+                <ul>
+                    {this.props.players.map(player =>
+                        <li key={player.id}>
+                            <EditPlayerContainer player={player}></EditPlayerContainer>
+                        </li>
+                    )}
+                </ul>
+
+                <button type="button" onClick={this.startGame.bind(this)}>Start Game!</button>
+            </div>
+        );
+    }
+
+    componentWillMount() {
+        if (this.props.game.status !== GAME_STATUS_NOT_STARTED) {
+            hashHistory.push('/');
         }
-    };
+    }
 
-    return (
-        <div>
-            <h2>Add the UNO players</h2>
-
-            <AddPlayerContainer></AddPlayerContainer>
-
-            <ul>
-                {players.map(player =>
-                    <li key={player.id}>
-                        <EditPlayerContainer player={player}></EditPlayerContainer>
-                    </li>
-                )}
-            </ul>
-
-            <button type="button" onClick={startGame}>Start Game!</button>
-        </div>
-    );
+    startGame() {
+        if (this.props.players && this.props.players.length >= 2) {
+            this.props.onGameStart();
+        }
+    }
 };
 
 GameCreation.propTypes = {

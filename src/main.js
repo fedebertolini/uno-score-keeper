@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
-import AppContainer from './containers/AppContainer';
+import App from './components/App';
 import appReducer from './reducers/appReducer';
 import { createGame } from './actions/gameActions';
 import { loadState, saveState } from './services/storePersistance';
@@ -24,7 +24,7 @@ if (!store.getState().game.status) {
 
 ReactDOM.render(
     <Provider store={store}>
-      <AppContainer />
+      <App />
     </Provider>,
 
     document.getElementById('app')

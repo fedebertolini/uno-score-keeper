@@ -1,10 +1,16 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
 
 class RoundTable extends React.Component {
 
     componentWillMount() {
+        const validStatus = [GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED];
+        if (!validStatus.some(status => status === this.props.game.status)) {
+            hashHistory.push('/');
+            return;
+        }
+
         this.roundScores = this.buildScores(this.props.players, this.props.rounds);
         this.winner = null;
 

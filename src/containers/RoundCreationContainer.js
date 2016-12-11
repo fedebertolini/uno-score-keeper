@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { addRound } from '../actions/roundActions';
 import { hashHistory } from 'react-router';
+import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
 
 class RoundCreationContainer extends React.Component {
     render() {
@@ -22,6 +23,13 @@ class RoundCreationContainer extends React.Component {
         )
     }
 
+    componentWillMount() {
+        const validStatus = [GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED];
+        if (!validStatus.some(status => status === this.props.game.status)) {
+            hashHistory.push('/');
+        }
+    }
+
     submitRound(event) {
         event.preventDefault();
         let scores = {};
@@ -35,13 +43,14 @@ class RoundCreationContainer extends React.Component {
 
 RoundCreationContainer.propTypes = {
     players: PropTypes.array.isRequired,
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         players: state.players,
+        game: state.game,
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {

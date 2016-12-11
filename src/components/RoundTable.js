@@ -3,20 +3,20 @@ import { Link } from 'react-router';
 import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
 
 class RoundTable extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.roundScores = this.buildScores(props.players, props.rounds);
+    componentWillMount() {
+        this.roundScores = this.buildScores(this.props.players, this.props.rounds);
         this.winner = null;
 
         if (this.roundScores.length) {
             const lastRoundScores = this.roundScores[this.roundScores.length - 1].scores;
-            const nonLosers = lastRoundScores.filter(score => score.accumulativePoints <= props.game.maxScore);
+            const nonLosers = lastRoundScores.filter(score => score.accumulativePoints <= this.props.game.maxScore);
 
             if (nonLosers.length === 1) {
-                this.winner = nonLosers[0];
-                if (props.game.status === GAME_STATUS_IN_PROGRESS) {
-                    props.onGameComplete();
+                const winnerId = nonLosers[0].playerId;
+                this.winner = this.props.players.find(player => player.id === winnerId);
+                if (this.props.game.status === GAME_STATUS_IN_PROGRESS) {
+                    this.props.onGameComplete();
                 }
             }
         }
@@ -36,7 +36,7 @@ class RoundTable extends React.Component {
                     </tbody>
                 </table>
                 { this.props.game.status === GAME_STATUS_IN_PROGRESS && <Link to="/round/create/">New Round!</Link> }
-
+                { this.winner && <h3>Winner: {this.winner.name}!</h3>}
             </div>
         )
     }

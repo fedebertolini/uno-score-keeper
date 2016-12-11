@@ -2,23 +2,32 @@ import React, { PropTypes } from 'react';
 import AddPlayerContainer from '../containers/AddPlayerContainer';
 import EditPlayerContainer from '../containers/EditPlayerContainer';
 
-const GameCreation = ({ onGameStart, players }) => (
-    <div>
-        <h2>Add the UNO players</h2>
+const GameCreation = ({ onGameStart, players }) => {
 
-        <AddPlayerContainer></AddPlayerContainer>
+    const startGame = () => {
+        if (players && players.length >= 2) {
+            onGameStart();
+        }
+    };
 
-        <ul>
-            {players.map(player =>
-                <li key={player.id}>
-                    <EditPlayerContainer player={player}></EditPlayerContainer>
-                </li>
-            )}
-        </ul>
+    return (
+        <div>
+            <h2>Add the UNO players</h2>
 
-        <button type="button" onClick={onGameStart}>Start Game!</button>
-    </div>
-);
+            <AddPlayerContainer></AddPlayerContainer>
+
+            <ul>
+                {players.map(player =>
+                    <li key={player.id}>
+                        <EditPlayerContainer player={player}></EditPlayerContainer>
+                    </li>
+                )}
+            </ul>
+
+            <button type="button" onClick={startGame}>Start Game!</button>
+        </div>
+    );
+};
 
 GameCreation.propTypes = {
     players: PropTypes.array.isRequired,

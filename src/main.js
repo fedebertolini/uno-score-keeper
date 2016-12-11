@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
-import App from './components/App';
+import AppContainer from './containers/AppContainer';
 import appReducer from './reducers/appReducer';
 import { createGame } from './actions/gameActions';
 import { loadState, saveState } from './services/storePersistance';
@@ -18,11 +18,13 @@ store.subscribe(() => {
     saveState(store.getState());
 })
 
-store.dispatch(createGame());
+if (!store.getState().game.status) {
+    store.dispatch(createGame());
+}
 
 ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <AppContainer />
     </Provider>,
 
     document.getElementById('app')

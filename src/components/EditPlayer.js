@@ -9,8 +9,11 @@ class EditPlayer extends React.Component {
     render() {
         if (this.state.editMode) {
             return (
-                <form ref="form" onSubmit={this.saveName.bind(this)}>
-                    <input type="text" ref="name" defaultValue={this.props.player.name}></input>
+                <form ref="form" ref={(form) => { this.form = form; }} onSubmit={this.saveName.bind(this)}>
+                    <input type="text"
+                        ref={(input) => { this.nameInput = input; }}
+                        defaultValue={this.props.player.name}>
+                    </input>
                     <button type="submit">Save</button>
                 </form>
             );
@@ -32,10 +35,10 @@ class EditPlayer extends React.Component {
 
     saveName(event) {
         event.preventDefault();
-        var playerName = this.refs.name.value;
+        var playerName = this.nameInput.value;
         if (playerName) {
             this.props.onSavePlayer(this.props.player.id, playerName);
-            this.refs.form.reset();
+            this.form.reset();
 
             this.toggleEditionMode();
         }

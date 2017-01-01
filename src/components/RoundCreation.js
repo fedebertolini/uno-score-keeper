@@ -11,7 +11,12 @@ class RoundCreation extends React.Component {
                         {this.props.players.map(player =>
                             <tr key={player.id}>
                                 <td>{player.name}</td>
-                                <td><input type="number" min="0" ref={player.id} defaultValue="0"></input></td>
+                                <td>
+                                    <input ref={(input) => { this.scoreInputs[player.id] = input; }}
+                                        min="0"
+                                        type="number"
+                                        defaultValue="0"></input>
+                                </td>
                             </tr>
                         )}
                     </tbody>
@@ -26,13 +31,14 @@ class RoundCreation extends React.Component {
         if (!validStatus.some(status => status === this.props.game.status)) {
             hashHistory.push('/');
         }
+        this.scoreInputs = {};
     }
 
     submitRound(event) {
         event.preventDefault();
         let scores = {};
         this.props.players.forEach(player => {
-            const input = this.refs[player.id];
+            const input = this.scoreInputs[player.id];
             scores[player.id] = input.value ? parseInt(input.value) : 0;
         });
         this.props.onAddRound(scores);

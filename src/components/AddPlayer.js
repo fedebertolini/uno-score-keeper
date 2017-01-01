@@ -3,8 +3,9 @@ import React from 'react';
 class AddPlayer extends React.Component {
     render() {
         return (
-            <form ref="form" onSubmit={this.submitForm.bind(this)}>
-                <input type="text" ref="name"></input>
+            <form ref={(form) => { this.form = form; }} onSubmit={this.submitForm.bind(this)}>
+
+                <input type="text" ref={(input) => { this.nameInput = input; }}></input>
                 <button type="submit">Add</button>
             </form>
         )
@@ -12,10 +13,10 @@ class AddPlayer extends React.Component {
 
     submitForm(event) {
         event.preventDefault();
-        var playerName = this.refs.name.value;
+        var playerName = this.nameInput.value;
         if (playerName) {
             this.props.onAddPlayer(playerName);
-            this.refs.form.reset();
+            this.form.reset();
         }
     }
 }

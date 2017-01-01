@@ -11,20 +11,8 @@ class RoundTable extends React.Component {
             return;
         }
 
-        this.roundScores = this.buildScores(this.props.players, this.props.rounds);
-        this.winner = null;
-
-        if (this.roundScores.length) {
-            const lastRoundScores = this.roundScores[this.roundScores.length - 1].scores;
-            const nonLosers = lastRoundScores.filter(score => score.accumulativePoints <= this.props.game.maxScore);
-
-            if (nonLosers.length === 1) {
-                const winnerId = nonLosers[0].playerId;
-                this.winner = this.props.players.find(player => player.id === winnerId);
-                if (this.props.game.status === GAME_STATUS_IN_PROGRESS) {
-                    this.props.onGameComplete();
-                }
-            }
+        if (this.props.winner && this.props.game.status === GAME_STATUS_IN_PROGRESS) {
+            this.props.onGameComplete();
         }
     }
 
@@ -38,11 +26,11 @@ class RoundTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.props.rounds.length ? this.scoreRows() : this.emptyRow() }
+                        { this.props.roundScores.length ? this.scoreRows() : this.emptyRow() }
                     </tbody>
                 </table>
                 { this.props.game.status === GAME_STATUS_IN_PROGRESS && <Link to="/round/create/">New Round!</Link> }
-                { this.winner && <h3>Winner: {this.winner.name}!</h3>}
+                { this.props.winner && <h3>Winner: {this.props.winner.name}!</h3>}
             </div>
         )
     }
@@ -56,7 +44,7 @@ class RoundTable extends React.Component {
     }
 
     scoreRows() {
-        return this.roundScores.map(round => (
+        return this.props.roundScores.map(round => (
             <tr key={round.roundId}>
                 {round.scores.map(score =>(
                     <td key={score.playerId}>{score.accumulativePoints}</td>
@@ -64,29 +52,19 @@ class RoundTable extends React.Component {
             </tr>
         ));
     }
-
-    buildScores(players, rounds) {
-        let accumulativePoints = {};
-        players.forEach(player => accumulativePoints[player.id] = 0);
-
-        return rounds.map(round => ({
-            roundId: round.id,
-            scores: players.map(player => ({
-                playerId: player.id,
-                roundPoints: round.scores[player.id],
-                accumulativePoints: (accumulativePoints[player.id] += round.scores[player.id])
-            }))
-        }));
-    };
 }
 
 RoundTable.propTypes = {
     players: PropTypes.array.isRequired,
-    rounds: PropTypes.array.isRequired,
+    roundScores: PropTypes.array.isRequired,
     game: PropTypes.shape({
         status: React.PropTypes.string,
-        maxScore: React.PropTypes.number
+        maxScore: React.PropTypes.number,
     }).isRequired,
+    winner: PropTypes.shape({
+        id: React.PropTypes.string,
+        name: React.PropTypes.string,
+    }),
     onGameComplete: PropTypes.func.isRequired,
 };
 

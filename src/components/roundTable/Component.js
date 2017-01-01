@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link, hashHistory } from 'react-router';
 import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../constants';
+require('./style.scss');
 
 class RoundTable extends React.Component {
 
@@ -18,10 +19,11 @@ class RoundTable extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="round-table-component">
                 <table>
                     <thead>
                         <tr>
+                            <th>#</th>
                             { this.props.players.map(player => <th key={player.id}>{player.name}</th>) }
                         </tr>
                     </thead>
@@ -29,7 +31,9 @@ class RoundTable extends React.Component {
                         { this.props.roundScores.length ? this.scoreRows() : this.emptyRow() }
                     </tbody>
                 </table>
-                { this.props.game.status === GAME_STATUS_IN_PROGRESS && <Link to="/round/create/">New Round!</Link> }
+                { this.props.game.status === GAME_STATUS_IN_PROGRESS &&
+                    <Link className="button primary" to="/round/create/">New Round!</Link>
+                }
                 { this.props.winner && <h3>Winner: {this.props.winner.name}!</h3>}
             </div>
         )
@@ -38,19 +42,37 @@ class RoundTable extends React.Component {
     emptyRow() {
         return (
             <tr>
+                <td></td>
                 { this.props.players.map(player => <td key={player.id}>0</td>) }
             </tr>
         );
     }
 
     scoreRows() {
-        return this.props.roundScores.map(round => (
+        return this.props.roundScores.map((round, index) => (
             <tr key={round.roundId}>
+                <td><strong>{index+1}</strong></td>
                 {round.scores.map(score =>(
-                    <td key={score.playerId}>{score.accumulativePoints}</td>
+                    <td key={score.playerId} className={this.scoreClass(score)}>
+                        {score.accumulativePoints}
+                    </td>
                 ))}
             </tr>
         ));
+    }
+
+    scoreClass(score) {
+        if (score.accumulativePoints > this.props.game.maxScore) {
+            return 'line-through text-red';
+        }
+        let cellClass = '';
+        if (score.roundPoints === 0) {
+            cellClass += 'underline ';
+        }
+        if (score.accumulativePoints >= (this.props.game.maxScore * 0.75)) {
+            cellClass += 'text-warning ';
+        }
+        return cellClass;
     }
 }
 

@@ -1,0 +1,18 @@
+.round-table-component {
+    table {
+        border-collapse: collapse;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: .75rem;
+        border-top: 1px solid #eceeef;
+        min-width: 80px;
+    }
+
+    th {
+        border-bottom: 2px solid #eceeef;
+        font-weight: bold;
+    }
+}

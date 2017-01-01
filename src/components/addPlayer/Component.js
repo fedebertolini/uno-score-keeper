@@ -1,12 +1,15 @@
 import React from 'react';
+require('./style.scss');
 
 class AddPlayer extends React.Component {
     render() {
         return (
-            <form ref={(form) => { this.form = form; }} onSubmit={this.submitForm.bind(this)}>
+            <form className="add-player-component"
+                ref={(form) => { this.form = form; }}
+                onSubmit={this.submitForm.bind(this)}>
 
                 <input type="text" ref={(input) => { this.nameInput = input; }}></input>
-                <button type="submit">Add</button>
+                <button className="button" type="submit"><strong>+</strong></button>
             </form>
         )
     }

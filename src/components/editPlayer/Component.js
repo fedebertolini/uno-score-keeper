@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+require('./style.scss');
 
 class EditPlayer extends React.Component {
     constructor(props) {
@@ -9,20 +10,28 @@ class EditPlayer extends React.Component {
     render() {
         if (this.state.editMode) {
             return (
-                <form ref="form" ref={(form) => { this.form = form; }} onSubmit={this.saveName.bind(this)}>
+                <form className="edit-player-component"
+                    ref="form" ref={(form) => { this.form = form; }}
+                    onSubmit={this.saveName.bind(this)}>
+
                     <input type="text"
                         ref={(input) => { this.nameInput = input; }}
                         defaultValue={this.props.player.name}>
                     </input>
-                    <button type="submit">Save</button>
+                    <button className="button" type="submit">Save</button>
                 </form>
             );
         }
         return (
-            <div>
-                <button type="button" onClick={this.toggleEditionMode.bind(this)}>Edit</button>
-                <button type="button" onClick={this.removePlayer.bind(this)}>Remove</button>
+            <div className="edit-player-component">
                 <span>{this.props.player.name}</span>
+
+                <button className="button danger" type="button"
+                    onClick={this.removePlayer.bind(this)}>&times;
+                </button>
+                <button className="button" type="button"
+                    onClick={this.toggleEditionMode.bind(this)}>Edit
+                </button>
             </div>
         );
     }

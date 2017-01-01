@@ -3,12 +3,13 @@ import AddPlayerContainer from '../addPlayer/Container';
 import EditPlayerContainer from '../editPlayer/Container';
 import { GAME_STATUS_NOT_STARTED } from '../../constants';
 import { hashHistory } from 'react-router';
+require('./style.scss');
 
 class GameCreation extends React.Component {
     render() {
         return (
-            <div>
-                <h2>Add the UNO players</h2>
+            <div className="game-creation-component">
+                <h2>Add players</h2>
 
                 <AddPlayerContainer></AddPlayerContainer>
 
@@ -20,7 +21,7 @@ class GameCreation extends React.Component {
                     )}
                 </ul>
 
-                <button type="button" onClick={this.startGame.bind(this)}>Start Game!</button>
+                <button className="button primary" type="button" onClick={this.startGame.bind(this)}>Start Game!</button>
             </div>
         );
     }

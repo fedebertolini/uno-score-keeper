@@ -1,0 +1,28 @@
+.game-creation-component {
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px 0 20px 0;
+        max-width: 300px;
+
+        li {
+            padding: .7rem 0;
+            border-bottom: 1px solid #ddd;
+            &:first-child {
+                border-top: 1px solid #ddd;
+            }
+
+            input[type="text"] {
+                padding: .2rem .5rem;
+                font-size: 0.8rem;
+                line-height: 1;
+            }
+
+            .button {
+                margin-left: 10px;
+                padding: .2rem .3rem;
+                font-size: 0.6rem;
+            }
+        }
+    }
+}

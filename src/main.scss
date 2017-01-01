@@ -1,0 +1,35 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #fdfcfa;
+}
+
+input[type="text"] {
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border: 1px solid rgba(0,0,0,.15);
+    color: #55595c;
+}
+
+.button {
+    line-height: 1.25;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+
+    &.primary {
+        color: #fff;
+        background-color: #0275d8;
+        border-color: #0275d8;
+    }
+    &.danger {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d9534f;
+    }
+}

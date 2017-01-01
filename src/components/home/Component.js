@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
+import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../constants';
 
 class Home extends React.Component {
     render() {

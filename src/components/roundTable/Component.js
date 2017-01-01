@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link, hashHistory } from 'react-router';
-import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
+import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../constants';
 
 class RoundTable extends React.Component {
 

@@ -1,6 +1,6 @@
-import EditPlayer from '../components/EditPlayer';
+import EditPlayer from './Component';
 import { connect } from 'react-redux';
-import { removePlayer, editPlayer } from '../actions/playerActions';
+import { removePlayer, editPlayer } from '../../actions/playerActions';
 
 const mapStateToProps = (state) => {
     return { };

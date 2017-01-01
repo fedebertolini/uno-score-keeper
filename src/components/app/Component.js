@@ -1,9 +1,9 @@
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
-import HomeContainer from '../containers/HomeContainer';
-import GameCreationContainer from '../containers/GameCreationContainer';
-import RoundTableContainer from '../containers/RoundTableContainer';
-import RoundCreationContainer from '../containers/RoundCreationContainer';
+import HomeContainer from '../home/Container';
+import GameCreationContainer from '../gameCreation/Container';
+import RoundTableContainer from '../roundTable/Container';
+import RoundCreationContainer from '../roundCreation/Container';
 
 const App = () => (
     <div>

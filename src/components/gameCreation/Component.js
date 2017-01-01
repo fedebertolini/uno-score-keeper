@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import AddPlayerContainer from '../containers/AddPlayerContainer';
-import EditPlayerContainer from '../containers/EditPlayerContainer';
-import { GAME_STATUS_NOT_STARTED } from '../constants';
+import AddPlayerContainer from '../addPlayer/Container';
+import EditPlayerContainer from '../editPlayer/Container';
+import { GAME_STATUS_NOT_STARTED } from '../../constants';
 import { hashHistory } from 'react-router';
 
 class GameCreation extends React.Component {

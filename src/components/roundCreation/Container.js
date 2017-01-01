@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { addRound } from '../actions/roundActions';
+import { addRound } from '../../actions/roundActions';
 import { hashHistory } from 'react-router';
-import RoundCreation from '../components/RoundCreation';
+import RoundCreation from './Component';
 
 const mapStateToProps = (state) => {
     return {

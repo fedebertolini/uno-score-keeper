@@ -1,4 +1,4 @@
-import * as roundActions from '../../src/actions/roundActions';
+import * as roundActions from '../../src/actions/round';
 import { ADD_ROUND, EDIT_ROUND } from '../../src/constants';
 
 test('addRound action', () => {

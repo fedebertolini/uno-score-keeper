@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import GameCreation from './Component';
-import { startGame } from '../../actions/gameActions';
+import { startGame } from '../../actions/game';
 
 const mapStateToProps = (state) => {
     return {

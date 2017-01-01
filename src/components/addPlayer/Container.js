@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addPlayer } from '../../actions/playerActions';
+import { addPlayer } from '../../actions/player';
 import AddPlayer from './Component';
 
 const mapStateToProps = (state) => {

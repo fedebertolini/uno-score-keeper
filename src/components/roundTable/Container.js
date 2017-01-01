@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { hashHistory } from 'react-router';
 import RoundTable from './Component';
-import { endGame } from '../../actions/gameActions'
+import { endGame } from '../../actions/game'
 
 const mapStateToProps = (state) => {
     const roundScores = buildScores(state.players, state.rounds);

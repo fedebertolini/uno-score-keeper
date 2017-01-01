@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addRound } from '../../actions/roundActions';
+import { addRound } from '../../actions/round';
 import { hashHistory } from 'react-router';
 import RoundCreation from './Component';
 

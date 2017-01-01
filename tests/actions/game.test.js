@@ -1,4 +1,4 @@
-import * as gameActions from '../../src/actions/gameActions';
+import * as gameActions from '../../src/actions/game';
 import { CREATE_GAME, START_GAME, END_GAME } from '../../src/constants';
 
 test('createGame action', () => {

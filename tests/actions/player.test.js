@@ -1,4 +1,4 @@
-import * as playerActions from '../../src/actions/playerActions';
+import * as playerActions from '../../src/actions/player';
 import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from '../../src/constants';
 
 test('addPlayer action', () => {

@@ -1,5 +1,5 @@
 import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from '../../src/constants';
-import { playerReducer } from '../../src/reducers/playerReducer'
+import { playerReducer } from '../../src/reducers/player'
 
 const baseState = [
     {

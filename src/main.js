@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import App from './components/app/Component';
-import appReducer from './reducers/appReducer';
+import appReducer from './reducers/app';
 import { createGame } from './actions/game';
 import { loadState, saveState } from './services/storePersistance';
 

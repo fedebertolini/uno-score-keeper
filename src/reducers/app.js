@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { gameReducer } from './gameReducer';
-import { playerReducer } from './playerReducer';
-import { roundReducer } from './roundReducer';
+import { gameReducer } from './game';
+import { playerReducer } from './player';
+import { roundReducer } from './round';
 
 const appReducer = combineReducers({
     game: gameReducer,

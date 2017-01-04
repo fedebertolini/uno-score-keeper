@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { hashHistory } from 'react-router';
 import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../constants';
+require('./style.scss');
 
 class RoundCreation extends React.Component {
     render() {
         return (
-            <form onSubmit={this.submitRound.bind(this)}>
+            <form className="round-creation-component" onSubmit={this.submitRound.bind(this)}>
                 <table>
                     <tbody>
                         {this.props.players.map(player =>
@@ -21,7 +22,7 @@ class RoundCreation extends React.Component {
                         )}
                     </tbody>
                 </table>
-                <button type="submit">Save</button>
+                <button type="submit" className="button primary">Save</button>
             </form>
         )
     }

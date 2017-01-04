@@ -3,12 +3,16 @@ body {
     background-color: #fdfcfa;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     padding: .5rem .75rem;
     font-size: 1rem;
     line-height: 1.25;
     border: 1px solid rgba(0,0,0,.15);
     color: #55595c;
+}
+
+input[type="number"] {
+    width: 50px;
 }
 
 .button {

@@ -28,7 +28,7 @@ class GameCreation extends React.Component {
 
     componentWillMount() {
         if (this.props.game.status !== GAME_STATUS_NOT_STARTED) {
-            hashHistory.push('/');
+            hashHistory.push('/round/');
         }
     }
 

@@ -35,6 +35,10 @@ class RoundTable extends React.Component {
                     <Link className="button primary" to="/round/create/">New Round!</Link>
                 }
                 { this.props.winner && <h3>Winner: {this.props.winner.name}!</h3>}
+
+                <button className="button danger" type="button" onClick={this.props.onGameRestart.bind(this)}>
+                    Restart game
+                </button>
             </div>
         )
     }
@@ -88,6 +92,7 @@ RoundTable.propTypes = {
         name: React.PropTypes.string,
     }),
     onGameComplete: PropTypes.func.isRequired,
+    onGameRestart: PropTypes.func.isRequired,
 };
 
 export default RoundTable;

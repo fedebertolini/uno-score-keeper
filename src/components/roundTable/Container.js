@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { hashHistory } from 'react-router';
 import RoundTable from './Component';
-import { endGame } from '../../actions/game'
+import { endGame, createGame } from '../../actions/game'
+import { clearRounds } from '../../actions/round'
 
 const mapStateToProps = (state) => {
     const roundScores = buildScores(state.players, state.rounds);
@@ -19,6 +20,11 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onGameComplete: () => {
             dispatch(endGame());
+        },
+        onGameRestart: () => {
+            dispatch(createGame());
+            dispatch(clearRounds());
+            hashHistory.push('/');
         },
     }
 };

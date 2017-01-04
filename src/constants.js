@@ -16,3 +16,4 @@ export const EDIT_PLAYER   = 'EDIT_PLAYER';
 // Round Action Constants
 export const ADD_ROUND  = 'ADD_ROUND';
 export const EDIT_ROUND = 'EDIT_ROUND';
+export const CLEAR_ROUNDS = 'CLEAR_ROUNDS';

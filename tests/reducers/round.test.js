@@ -1,4 +1,4 @@
-import { ADD_ROUND, EDIT_ROUND } from '../../src/constants';
+import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../../src/constants';
 import { roundReducer } from '../../src/reducers/round'
 
 const baseState = [
@@ -68,4 +68,14 @@ test('editRound reducer', () => {
             }
         }
     ]);
+});
+
+test('clearRounds reducer', () => {
+    const action = {
+        type: CLEAR_ROUNDS,
+    };
+
+    var state = roundReducer(baseState, action);
+
+    expect(state).toEqual([]);
 });

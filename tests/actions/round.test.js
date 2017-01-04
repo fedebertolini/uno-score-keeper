@@ -1,5 +1,5 @@
 import * as roundActions from '../../src/actions/round';
-import { ADD_ROUND, EDIT_ROUND } from '../../src/constants';
+import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../../src/constants';
 
 test('addRound action', () => {
     var scores = {
@@ -25,4 +25,10 @@ test('editRound action', () => {
         roundId: 1,
         scores: scores
     });
+});
+
+test('clearRounds action', () => {
+    var action = roundActions.clearRounds();
+
+    expect(action.type).toEqual(CLEAR_ROUNDS);
 });

@@ -1,4 +1,4 @@
-import { CREATE_GAME, START_GAME, END_GAME } from '../constants';
+import { CREATE_GAME, START_GAME, END_GAME, UPDATE_MAX_SCORE } from '../constants';
 
 export const createGame = () => {
     return {
@@ -15,5 +15,12 @@ export const startGame = () => {
 export const endGame = () => {
     return {
         type: END_GAME,
+    };
+};
+
+export const updateMaxScore = (score) => {
+    return {
+        type: UPDATE_MAX_SCORE,
+        score: score,
     };
 };

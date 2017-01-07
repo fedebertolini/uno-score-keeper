@@ -7,6 +7,7 @@ export const GAME_STATUS_FINISHED = 'GAME_STATUS_FINISHED';
 export const CREATE_GAME = 'CREATE_GAME';
 export const START_GAME  = 'START_GAME';
 export const END_GAME    = 'END_GAME';
+export const UPDATE_MAX_SCORE    = 'UPDATE_MAX_SCORE';
 
 // Player Action Constants
 export const ADD_PLAYER    = 'ADD_PLAYER';

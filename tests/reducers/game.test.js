@@ -1,4 +1,4 @@
-import { CREATE_GAME, START_GAME, END_GAME } from '../../src/constants';
+import { CREATE_GAME, START_GAME, END_GAME, UPDATE_MAX_SCORE } from '../../src/constants';
 import { GAME_STATUS_NOT_STARTED, GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../src/constants';
 import { gameReducer } from '../../src/reducers/game'
 
@@ -32,4 +32,14 @@ test('endGame reducer', () => {
 
     var state = gameReducer(baseState, action);
     expect(state.status).toEqual(GAME_STATUS_FINISHED);
+});
+
+test('updateScore reducer', () => {
+    const action = {
+        type: UPDATE_MAX_SCORE,
+        score: 300,
+    };
+
+    var state = gameReducer(baseState, action);
+    expect(state.maxScore).toEqual(300);
 });

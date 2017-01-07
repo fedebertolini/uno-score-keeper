@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import GameCreation from './Component';
-import { startGame } from '../../actions/game';
+import { startGame, updateMaxScore } from '../../actions/game';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onGameStart: () => {
+        onGameStart: (maxScore) => {
+            dispatch(updateMaxScore(maxScore));
             dispatch(startGame());
             hashHistory.push('/round');
         }

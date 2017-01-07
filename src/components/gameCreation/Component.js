@@ -21,6 +21,16 @@ class GameCreation extends React.Component {
                     )}
                 </ul>
 
+                <div className="max-score-container">
+                    <label>
+                        Max Score:
+                        <input type="number"
+                            ref={(input) => { this.maxScore = input; }}
+                            defaultValue={this.props.game.maxScore}>
+                        </input>
+                    </label>
+                </div>
+
                 <button className="button primary" type="button" onClick={this.startGame.bind(this)}>Start Game!</button>
             </div>
         );
@@ -34,7 +44,7 @@ class GameCreation extends React.Component {
 
     startGame() {
         if (this.props.players && this.props.players.length >= 2) {
-            this.props.onGameStart();
+            this.props.onGameStart(parseInt(this.maxScore.value, 10));
         }
     }
 };

@@ -20,6 +20,7 @@ class RoundTable extends React.Component {
     render() {
         return (
             <div className="round-table-component">
+                <label>Max Score: <strong>{this.props.game.maxScore}</strong></label>
                 <table>
                     <thead>
                         <tr>

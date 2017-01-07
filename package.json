@@ -1,7 +1,7 @@
 {
-  "name": "uno-score-tracker",
+  "name": "uno-score-keeper",
   "version": "1.0.0",
-  "description": "UNO score tracker",
+  "description": "UNO score keeper",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fedebertolini/uno-score-tracker.git"
+    "url": "git+https://github.com/fedebertolini/uno-score-keeper.git"
   },
   "author": "Federico Bertolini",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fedebertolini/uno-score-tracker/issues"
+    "url": "https://github.com/fedebertolini/uno-score-keeper/issues"
   },
-  "homepage": "https://github.com/fedebertolini/uno-score-tracker#readme",
+  "homepage": "https://github.com/fedebertolini/uno-score-keeper#readme",
   "dependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",

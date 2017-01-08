@@ -21,6 +21,10 @@
         "localStorage": true,
         "console": true,
         "document": true,
+        "expect": true,
+        "beforeAll": true,
+        "test": true,
+        "afterEach": true,
     },
     "parserOptions": {
         "ecmaFeatures": {

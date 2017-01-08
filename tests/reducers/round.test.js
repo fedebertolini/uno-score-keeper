@@ -1,5 +1,5 @@
 import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../../src/constants';
-import roundReducer from '../../src/reducers/round'
+import roundReducer from '../../src/reducers/round';
 
 const baseState = [
     {
@@ -8,8 +8,8 @@ const baseState = [
             1: 45,
             2: 0,
             3: 13,
-        }
-    }
+        },
+    },
 ];
 
 test('addRound reducer', () => {
@@ -20,10 +20,10 @@ test('addRound reducer', () => {
             1: 10,
             2: 0,
             3: 34,
-        }
+        },
     };
 
-    var state = roundReducer(baseState, action);
+    const state = roundReducer(baseState, action);
 
     expect(state).toEqual([
         {
@@ -32,7 +32,7 @@ test('addRound reducer', () => {
                 1: 45,
                 2: 0,
                 3: 13,
-            }
+            },
         },
         {
             id: 2,
@@ -40,8 +40,8 @@ test('addRound reducer', () => {
                 1: 10,
                 2: 0,
                 3: 34,
-            }
-        }
+            },
+        },
     ]);
 });
 
@@ -52,11 +52,11 @@ test('editRound reducer', () => {
         scores: {
             1: 0,
             2: 32,
-            3: 43
-        }
+            3: 43,
+        },
     };
 
-    var state = roundReducer(baseState, action);
+    const state = roundReducer(baseState, action);
 
     expect(state).toEqual([
         {
@@ -64,9 +64,9 @@ test('editRound reducer', () => {
             scores: {
                 1: 0,
                 2: 32,
-                3: 43
-            }
-        }
+                3: 43,
+            },
+        },
     ]);
 });
 
@@ -75,7 +75,7 @@ test('clearRounds reducer', () => {
         type: CLEAR_ROUNDS,
     };
 
-    var state = roundReducer(baseState, action);
+    const state = roundReducer(baseState, action);
 
     expect(state).toEqual([]);
 });

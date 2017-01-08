@@ -2,11 +2,11 @@ import * as roundActions from '../../src/actions/round';
 import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../../src/constants';
 
 test('addRound action', () => {
-    var scores = {
+    const scores = {
         1: 10,
-        2: 0
+        2: 0,
     };
-    var action = roundActions.addRound(scores);
+    const action = roundActions.addRound(scores);
 
     expect(action.type).toEqual(ADD_ROUND);
     expect(action.roundId).toBeTruthy();
@@ -14,21 +14,21 @@ test('addRound action', () => {
 });
 
 test('editRound action', () => {
-    var scores = {
+    const scores = {
         1: 10,
-        2: 0
+        2: 0,
     };
 
-    var action = roundActions.editRound(1, scores);
+    const action = roundActions.editRound(1, scores);
     expect(action).toEqual({
         type: EDIT_ROUND,
         roundId: 1,
-        scores: scores
+        scores,
     });
 });
 
 test('clearRounds action', () => {
-    var action = roundActions.clearRounds();
+    const action = roundActions.clearRounds();
 
     expect(action.type).toEqual(CLEAR_ROUNDS);
 });

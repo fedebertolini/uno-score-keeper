@@ -31,7 +31,8 @@ class GameCreation extends React.Component {
                     </label>
                 </div>
 
-                <button className="button primary" type="button" onClick={this.startGame.bind(this)}>Start Game!</button>
+                <button className="button primary" type="button"
+                    onClick={this.startGame.bind(this)}>Start Game!</button>
             </div>
         );
     }

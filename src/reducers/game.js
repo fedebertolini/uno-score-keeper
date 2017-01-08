@@ -1,5 +1,12 @@
-import { CREATE_GAME, START_GAME, END_GAME, UPDATE_MAX_SCORE } from '../constants';
-import { GAME_STATUS_NOT_STARTED, GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
+import {
+    GAME_STATUS_NOT_STARTED,
+    GAME_STATUS_IN_PROGRESS,
+    GAME_STATUS_FINISHED,
+    CREATE_GAME,
+    START_GAME,
+    END_GAME,
+    UPDATE_MAX_SCORE
+} from '../constants';
 
 function createGame() {
     return {

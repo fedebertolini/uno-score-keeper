@@ -24,4 +24,8 @@ class AddPlayer extends React.Component {
     }
 }
 
+AddPlayer.propTypes = {
+    onAddPlayer: React.PropTypes.func.isRequired,
+};
+
 export default AddPlayer;

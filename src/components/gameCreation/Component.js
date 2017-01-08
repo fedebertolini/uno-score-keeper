@@ -48,11 +48,12 @@ class GameCreation extends React.Component {
             this.props.onGameStart(parseInt(this.maxScore.value, 10));
         }
     }
-};
+}
 
 GameCreation.propTypes = {
     players: PropTypes.array.isRequired,
+    game: PropTypes.object.isRequired,
     onGameStart: PropTypes.func.isRequired
-}
+};
 
 export default GameCreation;

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import { hashHistory } from 'react-router';
 import RoundTable from './Component';
 import { endGame, createGame } from '../../actions/game'

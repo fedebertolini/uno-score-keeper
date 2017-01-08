@@ -48,6 +48,8 @@ class RoundCreation extends React.Component {
 
 RoundCreation.propTypes = {
     players: PropTypes.array.isRequired,
+    game: PropTypes.object.isRequired,
+    onAddRound: PropTypes.func.isRequired,
 };
 
 export default RoundCreation;

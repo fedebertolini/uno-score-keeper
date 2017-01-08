@@ -11,7 +11,7 @@ export function playerReducer(state = {}, action) {
         default:
             return state;
     }
-};
+}
 
 
 function addPlayer(players, action) {

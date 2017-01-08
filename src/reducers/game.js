@@ -1,7 +1,7 @@
 import { CREATE_GAME, START_GAME, END_GAME, UPDATE_MAX_SCORE } from '../constants';
 import { GAME_STATUS_NOT_STARTED, GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../constants';
 
-function createGame(state) {
+function createGame() {
     return {
         status: GAME_STATUS_NOT_STARTED,
         maxScore: 500
@@ -11,7 +11,7 @@ function createGame(state) {
 export function gameReducer(state = {}, action) {
     switch (action.type) {
         case CREATE_GAME:
-            return createGame(state);
+            return createGame();
         case START_GAME:
             return { ...state, status: GAME_STATUS_IN_PROGRESS };
         case END_GAME:
@@ -21,4 +21,4 @@ export function gameReducer(state = {}, action) {
         default:
             return state;
     }
-};
+}

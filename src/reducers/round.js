@@ -11,7 +11,7 @@ export function roundReducer(state = {}, action) {
         default:
             return state;
     }
-};
+}
 
 function addRound(rounds, action) {
     return [

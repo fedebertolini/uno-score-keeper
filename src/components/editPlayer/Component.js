@@ -11,7 +11,7 @@ class EditPlayer extends React.Component {
         if (this.state.editMode) {
             return (
                 <form className="edit-player-component"
-                    ref="form" ref={(form) => { this.form = form; }}
+                    ref={(form) => { this.form = form; }}
                     onSubmit={this.saveName.bind(this)}>
 
                     <input type="text"
@@ -62,7 +62,9 @@ EditPlayer.propTypes = {
     player: PropTypes.shape({
         id: React.PropTypes.string,
         name: React.PropTypes.string
-    }).isRequired
+    }).isRequired,
+    onRemovePlayer: React.PropTypes.func.isRequired,
+    onSavePlayer: React.PropTypes.func.isRequired,
 }
 
 export default EditPlayer;

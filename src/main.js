@@ -6,6 +6,7 @@ import App from './components/app/Component';
 import appReducer from './reducers/app';
 import { createGame } from './actions/game';
 import { loadState, saveState } from './services/storePersistance';
+
 require('./main.scss');
 
 const persistedState = loadState();

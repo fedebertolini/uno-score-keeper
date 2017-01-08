@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
+import { hashHistory } from 'react-router';
 import AddPlayerContainer from '../addPlayer/Container';
 import EditPlayerContainer from '../editPlayer/Container';
 import { GAME_STATUS_NOT_STARTED } from '../../constants';
-import { hashHistory } from 'react-router';
+
 require('./style.scss');
 
 class GameCreation extends React.Component {

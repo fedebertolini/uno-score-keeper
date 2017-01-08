@@ -1,5 +1,5 @@
-import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../constants';
 import { v4 } from 'node-uuid';
+import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../constants';
 
 export const addRound = scores => ({
     type: ADD_ROUND,

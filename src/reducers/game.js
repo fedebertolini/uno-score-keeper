@@ -15,7 +15,7 @@ function createGame() {
     };
 }
 
-export function gameReducer(state = {}, action) {
+const gameReducer = (state = {}, action) => {
     switch (action.type) {
     case CREATE_GAME:
         return createGame();
@@ -28,4 +28,6 @@ export function gameReducer(state = {}, action) {
     default:
         return state;
     }
-}
+};
+
+export default gameReducer;

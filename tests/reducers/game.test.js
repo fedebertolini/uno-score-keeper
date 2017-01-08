@@ -1,6 +1,6 @@
 import { CREATE_GAME, START_GAME, END_GAME, UPDATE_MAX_SCORE } from '../../src/constants';
 import { GAME_STATUS_NOT_STARTED, GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../src/constants';
-import { gameReducer } from '../../src/reducers/game'
+import gameReducer from '../../src/reducers/game'
 
 const baseState = {
     status: GAME_STATUS_NOT_STARTED,

@@ -3,6 +3,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import GameCreationContainer from '../gameCreation/Container';
 import RoundTableContainer from '../roundTable/Container';
 import RoundCreationContainer from '../roundCreation/Container';
+
 require('./style.scss');
 
 const App = () => (

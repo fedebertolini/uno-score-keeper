@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { hashHistory } from 'react-router';
 import { GAME_STATUS_IN_PROGRESS, GAME_STATUS_FINISHED } from '../../constants';
+
 require('./style.scss');
 
 class RoundCreation extends React.Component {
@@ -40,7 +41,7 @@ class RoundCreation extends React.Component {
         const scores = {};
         this.props.players.forEach((player) => {
             const input = this.scoreInputs[player.id];
-            scores[player.id] = input.value ? parseInt(input.value) : 0;
+            scores[player.id] = input.value ? parseInt(input.value, 10) : 0;
         });
         this.props.onAddRound(scores);
     }

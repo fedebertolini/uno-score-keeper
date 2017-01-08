@@ -1,18 +1,5 @@
 import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../constants';
 
-export default roundReducer = (state = {}, action) => {
-    switch (action.type) {
-    case ADD_ROUND:
-        return addRound(state, action);
-    case EDIT_ROUND:
-        return editRound(state, action);
-    case CLEAR_ROUNDS:
-        return clearRounds();
-    default:
-        return state;
-    }
-};
-
 function addRound(rounds, action) {
     return [
         ...rounds,
@@ -38,3 +25,18 @@ function editRound(rounds, action) {
 function clearRounds() {
     return [];
 }
+
+const roundReducer = (state = {}, action) => {
+    switch (action.type) {
+    case ADD_ROUND:
+        return addRound(state, action);
+    case EDIT_ROUND:
+        return editRound(state, action);
+    case CLEAR_ROUNDS:
+        return clearRounds();
+    default:
+        return state;
+    }
+};
+
+export default roundReducer;

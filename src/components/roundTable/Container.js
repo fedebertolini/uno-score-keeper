@@ -4,31 +4,11 @@ import RoundTable from './Component';
 import { endGame, createGame } from '../../actions/game';
 import { clearRounds } from '../../actions/round';
 
-const mapStateToProps = (state) => {
-    const roundScores = buildScores(state.players, state.rounds);
-
-    return {
-        players: state.players,
-        roundScores,
-        game: state.game,
-        winner: getWinner(roundScores, state.players, state.game.maxScore),
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    onGameComplete: () => {
-        dispatch(endGame());
-    },
-    onGameRestart: () => {
-        dispatch(createGame());
-        dispatch(clearRounds());
-        hashHistory.push('/');
-    },
-});
-
 const buildScores = (players, rounds) => {
     const accumulativePoints = {};
-    players.forEach(player => accumulativePoints[player.id] = 0);
+    players.forEach((player) => {
+        accumulativePoints[player.id] = 0;
+    });
 
     return rounds.map(round => ({
         roundId: round.id,
@@ -52,5 +32,27 @@ const getWinner = (roundScores, players, maxScore) => {
     }
     return null;
 };
+
+const mapStateToProps = (state) => {
+    const roundScores = buildScores(state.players, state.rounds);
+
+    return {
+        players: state.players,
+        roundScores,
+        game: state.game,
+        winner: getWinner(roundScores, state.players, state.game.maxScore),
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    onGameComplete: () => {
+        dispatch(endGame());
+    },
+    onGameRestart: () => {
+        dispatch(createGame());
+        dispatch(clearRounds());
+        hashHistory.push('/');
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(RoundTable);

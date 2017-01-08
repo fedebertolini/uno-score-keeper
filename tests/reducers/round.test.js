@@ -1,5 +1,5 @@
 import { ADD_ROUND, EDIT_ROUND, CLEAR_ROUNDS } from '../../src/constants';
-import { roundReducer } from '../../src/reducers/round'
+import roundReducer from '../../src/reducers/round'
 
 const baseState = [
     {

@@ -41,7 +41,7 @@ class RoundTable extends React.Component {
                     Restart game
                 </button>
             </div>
-        )
+        );
     }
 
     emptyRow() {
@@ -56,8 +56,8 @@ class RoundTable extends React.Component {
     scoreRows() {
         return this.props.roundScores.map((round, index) => (
             <tr key={round.roundId}>
-                <td><strong>{index+1}</strong></td>
-                {round.scores.map(score =>(
+                <td><strong>{index + 1}</strong></td>
+                {round.scores.map(score => (
                     <td key={score.playerId} className={this.scoreClass(score)}>
                         {score.accumulativePoints}
                     </td>

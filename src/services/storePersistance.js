@@ -17,4 +17,4 @@ export const saveState = (state) => {
     } catch (error) {
         console.log('unable to store state in local storage', error);
     }
-}
+};

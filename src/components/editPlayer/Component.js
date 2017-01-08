@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+
 require('./style.scss');
 
 class EditPlayer extends React.Component {
@@ -38,13 +39,13 @@ class EditPlayer extends React.Component {
 
     toggleEditionMode() {
         this.setState({
-            editMode: !this.state.editMode
+            editMode: !this.state.editMode,
         });
     }
 
     saveName(event) {
         event.preventDefault();
-        var playerName = this.nameInput.value;
+        const playerName = this.nameInput.value;
         if (playerName) {
             this.props.onSavePlayer(this.props.player.id, playerName);
             this.form.reset();
@@ -61,10 +62,10 @@ class EditPlayer extends React.Component {
 EditPlayer.propTypes = {
     player: PropTypes.shape({
         id: React.PropTypes.string,
-        name: React.PropTypes.string
+        name: React.PropTypes.string,
     }).isRequired,
     onRemovePlayer: React.PropTypes.func.isRequired,
     onSavePlayer: React.PropTypes.func.isRequired,
-}
+};
 
 export default EditPlayer;

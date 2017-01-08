@@ -2,14 +2,14 @@ import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from '../constants';
 
 export function playerReducer(state = {}, action) {
     switch (action.type) {
-        case ADD_PLAYER:
-            return addPlayer(state, action);
-        case REMOVE_PLAYER:
-            return removePlayer(state, action);
-        case EDIT_PLAYER:
-            return editPlayer(state, action);
-        default:
-            return state;
+    case ADD_PLAYER:
+        return addPlayer(state, action);
+    case REMOVE_PLAYER:
+        return removePlayer(state, action);
+    case EDIT_PLAYER:
+        return editPlayer(state, action);
+    default:
+        return state;
     }
 }
 
@@ -19,13 +19,13 @@ function addPlayer(players, action) {
         ...players,
         {
             id: action.playerId,
-            name: action.playerName
-        }
+            name: action.playerName,
+        },
     ];
 }
 
 function removePlayer(players, action) {
-    return players.filter((player) => player.id !== action.playerId);
+    return players.filter(player => player.id !== action.playerId);
 }
 
 function editPlayer(players, action) {
@@ -33,7 +33,7 @@ function editPlayer(players, action) {
         if (player.id === action.playerId) {
             return {
                 id: player.id,
-                name: action.newPlayerName
+                name: action.newPlayerName,
             };
         }
         return player;

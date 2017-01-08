@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "babel-jest": "^17.0.2",
     "css-loader": "^0.26.1",
     "eslint": "^3.13.0",
+    "eslint-config-airbnb-base": "^11.0.0",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.8.0",

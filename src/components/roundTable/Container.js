@@ -1,35 +1,33 @@
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import RoundTable from './Component';
-import { endGame, createGame } from '../../actions/game'
-import { clearRounds } from '../../actions/round'
+import { endGame, createGame } from '../../actions/game';
+import { clearRounds } from '../../actions/round';
 
 const mapStateToProps = (state) => {
     const roundScores = buildScores(state.players, state.rounds);
 
     return {
         players: state.players,
-        roundScores: roundScores,
+        roundScores,
         game: state.game,
-        winner: getWinner(roundScores, state.players, state.game.maxScore)
+        winner: getWinner(roundScores, state.players, state.game.maxScore),
     };
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onGameComplete: () => {
-            dispatch(endGame());
-        },
-        onGameRestart: () => {
-            dispatch(createGame());
-            dispatch(clearRounds());
-            hashHistory.push('/');
-        },
-    }
 };
 
+const mapDispatchToProps = dispatch => ({
+    onGameComplete: () => {
+        dispatch(endGame());
+    },
+    onGameRestart: () => {
+        dispatch(createGame());
+        dispatch(clearRounds());
+        hashHistory.push('/');
+    },
+});
+
 const buildScores = (players, rounds) => {
-    let accumulativePoints = {};
+    const accumulativePoints = {};
     players.forEach(player => accumulativePoints[player.id] = 0);
 
     return rounds.map(round => ({
@@ -37,8 +35,8 @@ const buildScores = (players, rounds) => {
         scores: players.map(player => ({
             playerId: player.id,
             roundPoints: round.scores[player.id],
-            accumulativePoints: (accumulativePoints[player.id] += round.scores[player.id])
-        }))
+            accumulativePoints: (accumulativePoints[player.id] += round.scores[player.id]),
+        })),
     }));
 };
 

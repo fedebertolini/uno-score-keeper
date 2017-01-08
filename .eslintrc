@@ -4,7 +4,8 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:import/errors",
-        "plugin:import/warnings"
+        "plugin:import/warnings",
+        "airbnb-base"
     ],
     "plugins": [
         "react",
@@ -13,6 +14,7 @@
     "rules": {
         "max-len": [2, 120, 2, {ignoreComments: true }],
         "no-console": 0,
+        "indent": [2, 4],
     },
     "globals": {
         "require": true,

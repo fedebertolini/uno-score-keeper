@@ -1,4 +1,5 @@
 import React from 'react';
+
 require('./style.scss');
 
 class AddPlayer extends React.Component {
@@ -11,12 +12,12 @@ class AddPlayer extends React.Component {
                 <input type="text" ref={(input) => { this.nameInput = input; }}></input>
                 <button className="button" type="submit"><strong>+</strong></button>
             </form>
-        )
+        );
     }
 
     submitForm(event) {
         event.preventDefault();
-        var playerName = this.nameInput.value;
+        const playerName = this.nameInput.value;
         if (playerName) {
             this.props.onAddPlayer(playerName);
             this.form.reset();

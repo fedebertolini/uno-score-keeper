@@ -6,7 +6,7 @@ import { roundReducer } from './round';
 const appReducer = combineReducers({
     game: gameReducer,
     players: playerReducer,
-    rounds: roundReducer
+    rounds: roundReducer,
 });
 
 export default appReducer;

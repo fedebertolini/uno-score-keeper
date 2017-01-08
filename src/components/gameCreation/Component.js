@@ -17,7 +17,7 @@ class GameCreation extends React.Component {
                     {this.props.players.map(player =>
                         <li key={player.id}>
                             <EditPlayerContainer player={player}></EditPlayerContainer>
-                        </li>
+                        </li>,
                     )}
                 </ul>
 
@@ -53,7 +53,7 @@ class GameCreation extends React.Component {
 GameCreation.propTypes = {
     players: PropTypes.array.isRequired,
     game: PropTypes.object.isRequired,
-    onGameStart: PropTypes.func.isRequired
+    onGameStart: PropTypes.func.isRequired,
 };
 
 export default GameCreation;

@@ -18,13 +18,13 @@ class RoundCreation extends React.Component {
                                         type="number"
                                         defaultValue="0"></input>
                                 </td>
-                            </tr>
+                            </tr>,
                         )}
                     </tbody>
                 </table>
                 <button type="submit" className="button primary">Save</button>
             </form>
-        )
+        );
     }
 
     componentWillMount() {
@@ -37,8 +37,8 @@ class RoundCreation extends React.Component {
 
     submitRound(event) {
         event.preventDefault();
-        let scores = {};
-        this.props.players.forEach(player => {
+        const scores = {};
+        this.props.players.forEach((player) => {
             const input = this.scoreInputs[player.id];
             scores[player.id] = input.value ? parseInt(input.value) : 0;
         });

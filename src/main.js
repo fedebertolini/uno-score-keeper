@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/app/Component';
@@ -24,7 +24,7 @@ if (!store.getState().game.status) {
     store.dispatch(createGame());
 }
 
-ReactDOM.render(
+render(
     <Provider store={store}>
       <App />
     </Provider>,

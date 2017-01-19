@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
+    "build": "webpack --production --optimize-minimize",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "lint": "eslint src tests"
